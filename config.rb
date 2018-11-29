@@ -7,6 +7,18 @@ end
 # Used with Rails Assets to fetch Tachyons
 activate :sprockets
 
+# Blog activation and configuration
+activate :blog do |blog|
+  blog.prefix = 'recipes'
+  blog.sources = '{title}.html'
+  blog.permalink = '{title}.html'
+  blog.layout = 'article'
+end
+
+# Time zone settings
+require 'tzinfo'
+Time.zone = 'US/Eastern'
+
 # Fixes issues with GitHub pages
 # https://github.com/edgecase/middleman-gh-pages#project-page-path-issues
 activate :relative_assets
